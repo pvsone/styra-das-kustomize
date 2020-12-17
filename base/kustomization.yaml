@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- credentials.yaml
+- elastic/es-client.yaml
+- elastic/es-config.yaml
+- elastic/es-data-stateful.yaml
+- elastic/es-data-svc.yaml
+- elastic/es-discovery-svc.yaml
+- elastic/es-master.yaml
+- elastic/es-svc.yaml
+- on-premises.yaml
+- postgres/postgres-deployment.yaml
+- postgres/postgres-service.yaml
+- postgres/postgres-storage.yaml
+- settings.yaml
+- standard/standard-external-http.yaml
+- trusted-ca-certs.yaml
