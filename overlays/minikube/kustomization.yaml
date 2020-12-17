@@ -1,0 +1,62 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+- ../../base
+
+patchesStrategicMerge:
+- elastic/es-config.yaml
+- elastic/es-data-stateful.yaml
+- postgres/postgres-storage.yaml
+- settings.yaml
+- standard/standard-external-http.yaml
+
+images:
+- name: REPOSITORY_URL/styra/activity
+  newName: <YOUR_REGISTRY>/styra/activity
+- name: REPOSITORY_URL/styra/agentbundle
+  newName: <YOUR_REGISTRY>/styra/agentbundle
+- name: REPOSITORY_URL/styra/agentloader
+  newName: <YOUR_REGISTRY>/styra/agentloader
+- name: REPOSITORY_URL/styra/agentstatus
+  newName: <YOUR_REGISTRY>/styra/agentstatus
+- name: REPOSITORY_URL/styra/analysis-api
+  newName: <YOUR_REGISTRY>/styra/analysis-api
+- name: REPOSITORY_URL/styra/coordinator
+  newName: <YOUR_REGISTRY>/styra/coordinator
+- name: REPOSITORY_URL/styra/datasources
+  newName: <YOUR_REGISTRY>/styra/datasources
+- name: REPOSITORY_URL/styra/docs
+  newName: <YOUR_REGISTRY>/styra/docs
+- name: REPOSITORY_URL/styra/environment-configurator
+  newName: <YOUR_REGISTRY>/styra/environment-configurator
+- name: REPOSITORY_URL/styra/fetchdb
+  newName: <YOUR_REGISTRY>/styra/fetchdb
+- name: REPOSITORY_URL/styra/gateway
+  newName: <YOUR_REGISTRY>/styra/gateway
+- name: REPOSITORY_URL/styra/logreplay
+  newName: <YOUR_REGISTRY>/styra/logreplay
+- name: REPOSITORY_URL/styra/stacks
+  newName: <YOUR_REGISTRY>/styra/stacks
+- name: REPOSITORY_URL/styra/sysinspector
+  newName: <YOUR_REGISTRY>/styra/sysinspector
+- name: REPOSITORY_URL/styra/systems
+  newName: <YOUR_REGISTRY>/styra/systems
+- name: REPOSITORY_URL/styra/tenants
+  newName: <YOUR_REGISTRY>/styra/tenants
+- name: REPOSITORY_URL/styra/timeseries
+  newName: <YOUR_REGISTRY>/styra/timeseries
+- name: REPOSITORY_URL/styra/ui
+  newName: <YOUR_REGISTRY>/styra/ui
+- name: REPOSITORY_URL/elasticsearch
+  newName: <YOUR_REGISTRY>/elasticsearch
+- name: REPOSITORY_URL/postgres
+  newName: <YOUR_REGISTRY>/postgres
+
+replicas:
+- name: es-client
+  count: 1
+- name: es-data
+  count: 1
+- name: es-master
+  count: 1

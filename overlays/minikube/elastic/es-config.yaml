@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: es-config
+data:
+  elasticsearch.yml: |
+    cluster:
+      name: escluster
+      initial_master_nodes:
+        - es-master-0
+
+    node:
+      master: ${ES_NODE_MASTER}
+      data: ${ES_NODE_DATA}
+      name: ${ES_NODE_NAME}
+      ingest: false
+      store.allow_mmap: false
+      processors: 1
+
+    network.host: "_eth0:ipv4_"
+
+    path:
+      data: /data/data
+      logs: /data/log
+
+    bootstrap:
+      memory_lock: false
+
+    http:
+      compression: true
+      cors:
+        enabled: true
+        allow-origin: "*"
+
+    discovery:
+      seed_hosts: elasticsearch-discovery
+
+    xpack.ml.enabled: false
