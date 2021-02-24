@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: es-master
+spec:
+  template:
+    spec:
+      initContainers:
+      - name: chown
+        securityContext:
+          privileged: true
+      containers:
+      - name: es-master
+        securityContext:
+          privileged: true
