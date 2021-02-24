@@ -12,4 +12,3 @@ spec:
     targetPort: 8080
     nodePort: 30036
   type: NodePort
-  loadBalancerIP: null

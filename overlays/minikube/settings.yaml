@@ -16,5 +16,5 @@ data:
         }
       }
     }
-  ingress_url: http://<YOUR_MINIKUBE_IP>:30036
+  ingress_url: http://<YOUR_NODE_IP>:30036
   smtp_address: ""
