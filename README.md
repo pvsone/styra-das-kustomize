@@ -3,7 +3,7 @@
 Kustomize overlays for installing Styra DAS on a local minikube or crc cluster.
 
 ## Minikube
-_This has been tested with DAS v0.4.6, and minikube v1.17 with Kubernetes v1.19 on a mac._
+_This has been tested with DAS v0.5.4, and minikube v1.23 with Kubernetes v1.21 on a mac._
 
 ### 1. Start minikube
 ```
@@ -31,8 +31,10 @@ In `overlays/minikube/kustomization.yaml`
 
     * _If your private registry requires authentication, you will need to configure an [ImagePullSecret on the `default` service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account) in the `styra-das` namespace._
 
-In `overlays/settings.yaml`
+In `overlays/minikube/settings.yaml`
 * Update the `ingress_url` value. Replace `<YOUR_NODE_IP>` with the value of the IP obtained in step 1.
+
+In `overlays/minikube/credentials.yaml`
 * Update the `CHANGEME` value for the root user password.
 
 ### 4. Deploy Styra DAS

@@ -5,6 +5,7 @@ resources:
 - ../../base
 
 patchesStrategicMerge:
+- credentials.yaml
 - elastic/es-config.yaml
 - elastic/es-data-stateful.yaml
 - postgres/postgres-storage.yaml
